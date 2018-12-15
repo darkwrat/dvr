@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Date;
 
 public class DVRMain {
 
@@ -84,6 +85,7 @@ public class DVRMain {
                     BufferedImage img = ImageIO.read(new ByteArrayInputStream(image, 0, info.cur_size));
                     labels[info.ch].setIcon(new ImageIcon(img));
                     frame.pack();
+                    frame.setTitle(new Date(info.time).toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
